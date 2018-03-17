@@ -1,0 +1,206 @@
+body {
+    font-family: 'Arvo';
+    font-size: 16px;
+    padding: 20px 100px 0px 100px;
+    background: navy;
+}
+
+/* List */
+
+ul {
+    list-style: none;
+}
+
+li {
+    background: #fff;
+    width: 500px;
+    min-height: 30px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+}
+
+.delete {
+    display: none;
+    margin-left: auto;
+}
+
+li:hover .delete {
+    display: block;
+}
+
+label {
+    width: 400px;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+/* Form */
+
+input[type=checkbox] {
+    transform: scale(1.5);
+    margin-right: 10px;
+}
+
+input[type=text] {
+    font-size: 1em;
+}
+
+button {
+    font-family: 'Arvo';
+    font-size: 1em;
+}
+
+/* Controls */
+
+.controls {
+    margin-top: 20px;
+}
+
+i {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    cursor: pointer;
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    cursor: pointer;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: navy;
+   color: white;
+   text-align: center;
+}
+
+.wrapper {display: grid;grid-template-columns: 3fr 1fr;grid-column-gap: 0px;grid-row-gap: 0px;padding-bottom: 10px;}
+
+.letter {
+    background-color: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right:0px;
+    font-size: 10px;
+    color: #232F3E;
+    line-height: 1;
+    font-family: 'hobeaux-rococeaux-background', Helvetica;
+    font-weight: 200;
+    cursor: pointer;
+    transition: all .3s ease;
+    height: 175px;
+    }
+
+.price {background-color: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right:10px;
+    font-size: 10px;
+    color: #232F3E;
+    line-height: 1;
+    font-family: 'hobeaux-rococeaux-background', Helvetica;
+    font-weight: 200;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.cat {
+    color: rgba(255,255,255,.85);
+    font-size: 40px;
+    margin-right: 10px;
+    padding-left: 10px;
+}
+
+
+.half{
+    width: 60%
+}
+
+.half2{
+    width: 40%;
+    float: right;
+    vertical-align: center;
+}
+
+.list{
+    font-size: 25px;
+    margin-top: -120px;
+    float: left;
+}
+
+.amounter{
+    font-size: 12px;
+    margin-left: -85px;
+    margin-top: -10px;
+    float: left;
+}
+
+.cost{
+    font-size: 15px;
+    float: left;
+    margin-left: -45px;
+    margin-bottom: -10px;
+    margin-top: 5px;
+    width: 50px;
+}
+
+.cart{
+    font-size: 20px;
+    float: left;
+    text-align: center;
+    margin-bottom: -145px;
+}
+
+.desc{
+    font-size: 50px;
+    margin-left: 40px;
+    margin-bottom: -10px;
+}
+
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: -150px;
+    font-size: 15px; 
+    text-align: center;
+}
+
+.bg-faded2{
+    background-color:rgba(255,255,255,.85);
+}
