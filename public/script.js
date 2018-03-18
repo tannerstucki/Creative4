@@ -37,7 +37,7 @@ var app = new Vue({
   },
   methods: {
     getItems: function() {
-      axios.get("http://159.89.158.36:4000/api/items").then(response => {
+      axios.get("http://167.99.111.214:4000/api/items").then(response => {
 	      this.items = response.data;
         for (i = 0; i < this.items.length(); i++){
           console.log(totalPrice);
@@ -53,7 +53,7 @@ var app = new Vue({
       amount = this.amount;
       price = price * amount;
       this.totalPrice += price;
-      axios.post("http://159.89.158.36:4000/api/items", {
+      axios.post("http://167.99.111.214:4000/api/items", {
         text: text,
         amount: amount,
         price: price,
@@ -69,7 +69,7 @@ var app = new Vue({
       });
     },
     deleteItem: function(item) {
-      axios.delete("http://159.89.158.36:4000/api/items" + item.id).then(response => {
+      axios.delete("http://167.99.111.214:4000/api/items" + item.id).then(response => {
         this.getItems();
         return true;
       }).catch(err => {
