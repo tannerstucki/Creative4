@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css"/>
+    <title>Walmart Shopping List</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1 style="color: lightgray">Walmart Online Shopping</h1>
+      <p v-show="activeItems.length === 0" style="color: lightgray">Your shopping cart is empty. Add from the list below!</p>
+      <h2 v-show="activeItems.length != 0" style="color: lightgray">Your Shopping Cart:</h2>
+    <ul>
+    <li v-for="item in filteredItems" draggable="true" v-on:dragstart="dragItem(item)" v-on:dragover.prevent v-on:drop="dropItem(item)">
+      <p type="checkbox" v-model="item.completed" v-on:click="completeItem(item)" /><label v-bind:class="{ completed: item.completed }">{{ item.text }} </label><br> </p><br>
+      <font size="1">(Amount: {{ item.amount }} &nbsp &nbsp &nbsp</font>
+      <i class="arrow up" v-on:click="incrementUp(item)"></i>&nbsp &nbsp<i class="arrow down" v-on:click="incrementDown(item)"></i>&nbsp &nbsp &nbsp <font size ="1">Price: ${{ item.price }})</label> </font><button v-on:click="deleteItem(item)" class="delete">X</button>
+	  </li>
+    </ul>
+      <p class="cat">Produce</font>
+          <div class='wrapper' style="padding-bottom: 100px">
+            <div class='letter'>
+               <img src="img/apple.png" alt="apple" width="15%" height="90%">
+               <p class="desc">Apples</p>
+            </div>
+            <div class='price'>
+                <p class='list'>$1.00/lb</p>
+                <p class='amounter'>Amount:</p>
+                <input class='cost' type="number" v-model="amount" min="1" value="1" width="50px;">
+                <button class="popup" v-on:click="addItem2('Apples',1.00)">Add to Cart</button>
+            </div>
+            <div class='letter'>
+               <img src="img/banana.png" alt="banana" width="15%" height="90%">
+               <p class="desc">Bananas</p>
+            </div>
+            <div class='price'>
+                <p class='list'>$0.60/lb</p>
+                <p class='amounter'>Amount:</p>
+                <input class='cost' type="number" v-model="amount" min="1" value="1" width="50px;">
+                <button class="popup" v-on:click="addItem2('Bananas',.60)">Add to Cart</button>
+            </div>
+            <div class='letter'>
+               <img src="img/grapes.png" alt="grapes" width="15%" height="90%">
+               <p class="desc">Grapes</p>
+            </div>
+            <div class='price'>
+                <p class='list'>$2.75/lb</p>
+                <p class='amounter'>Amount:</p>
+                <input class='cost' type="number" v-model="amount" min="1" value="1" width="50px;">
+                <button class="popup" v-on:click="addItem2('Grapes',2.75)">Add to Cart</button>
+            </div>
+          </div>
+          <p class="cat">Dairy</font>
+          <div class='wrapper' style="padding-bottom: 100px">
+            <div class='letter'>
+               <img src="img/milk.png" alt="milk" width="15%" height="90%">
+               <p class="desc">Milk</p>
+            </div>
+            <div class='price'>
+                <p class='list'>$3.29/lb</p>
+                <p class='amounter'>Amount:</p>
+                <input class='cost' type="number" v-model="amount" min="1" value="1" width="50px;">
+                <button class="popup" v-on:click="addItem2('Milk',3.29)">Add to Cart</button>
+            </div>
+            <div class='letter'>
+               <img src="img/butter.png" alt="butter" width="15%" height="90%">
+               <p class="desc">Butter</p>
+            </div>
+            <div class='price'>
+                <p class='list'>$3.99/lb</p>
+                <p class='amounter'>Amount:</p>
+                <input class='cost' type="number" v-model="amount" min="1" value="1" width="50px;">
+                <button class="popup" v-on:click="addItem2('Butter',3.99)">Add to Cart</button>
+            </div>
+            <div class='letter'>
+               <img src="img/choco.png" alt="choco" width="15%" height="90%">
+               <p class="desc">Chocolate Milk</p>
+            </div>
+            <div class='price'>
+                <p class='list'>$3.89/lb</p>
+                <p class='amounter'>Amount:</p>
+                <input class='cost' type="number" v-model="amount" min="1" value="1" width="50px;">
+                <button class="popup" v-on:click="addItem2('Chocolate Milk',3.89)">Add to Cart</button>
+            </div>      
+      </div>
+          <p class="cat">Bakery</font>
+          <div class='wrapper' style="padding-bottom: 100px">
+            <div class='letter'>
+               <img src="img/bread.png" alt="bread" width="15%" height="90%">
+               <p class="desc">Bread</p>
+            </div>
+            <div class='price'>
+                <p class='list'>$2.50/lb</p>
+                <p class='amounter'>Amount:</p>
+                <input class='cost' type="number" v-model="amount" min="1" value="1" width="50px;">
+                <button class="popup" v-on:click="addItem2('Bread',2.50)">Add to Cart</button>
+            </div>
+            <div class='letter'>
+               <img src="img/buns.png" alt="buns" width="15%" height="90%">
+               <p class="desc">Buns</p>
+            </div>
+            <div class='price'>
+                <p class='list'>$3.75/lb</p>
+                <p class='amounter'>Amount:</p>
+                <input class='cost' type="number" v-model="amount" min="1" value="1" width="50px;">
+                <button class="popup" v-on:click="addItem2('Buns',3.75)">Add to Cart</button>
+            </div>
+            <div class='letter'>
+               <img src="img/cookies.png" alt="cookies" width="15%" height="90%">
+               <p class="desc">Cookies</p>
+            </div>
+            <div class='price'>
+                <p class='list'>$4.99/lb</p>
+                <p class='amounter'>Amount:</p>
+                <input class='cost' type="number" v-model="amount" min="1" value="1" width="50px;">
+                <button class="popup" v-on:click="addItem2('Cookies',4.99)">Add to Cart</button>
+            </div>      
+      </div>
+    </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js" integrity="sha256-pU9euBaEcVl8Gtg+FRYCtin2vKLN8sx5/4npZDmY2VA=" crossorigin="anonymous"></script>
+    <script src="/script.js"></script>
+  </body>
+  <div class="footer">
+    <a href="https://github.com/tannerstucki/Creative4" target="_blank" style="color: lightgrey">My Github for this Lab</p>
+  </div>
+</html>
