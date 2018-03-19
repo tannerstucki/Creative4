@@ -69,7 +69,7 @@ var app = new Vue({
       });
     },
     deleteItem: function(item) {
-      axios.delete("http://167.99.111.214:4000/api/items" + item.id).then(response => {
+      axios.delete("http://167.99.111.214:4000/api/items/" + item.id).then(response => {
         this.getItems();
         return true;
       }).catch(err => {
